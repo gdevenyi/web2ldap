@@ -431,7 +431,7 @@ class AppHandler(LogHelper):
     def url_redirect(
             self,
             redirect_msg,
-            link_text='Continue&gt;&gt;',
+            link_text='Continue &gt;&gt;',
             refresh_time=3,
             target_url=None,
         ):
