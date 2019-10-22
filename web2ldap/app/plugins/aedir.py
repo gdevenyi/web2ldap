@@ -2410,7 +2410,7 @@ class AEChildClasses(SelectList):
     }
 
 syntax_registry.reg_at(
-    AEStatus.oid, [
+    AEChildClasses.oid, [
         AE_OID_PREFIX+'.4.49', # aeChildClasses
     ]
 )
