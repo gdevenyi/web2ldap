@@ -917,6 +917,7 @@ syntax_registry.reg_at(
         '1.2.840.113556.1.4.583', # meetingURL
         '1.2.840.113556.1.2.464', # wWWHomePage
         '1.2.840.113556.1.4.749', # url
+        '1.2.840.113556.1.6.24.1.1', # msRTCSIP-PrimaryUserAddress
     ]
 )
 
