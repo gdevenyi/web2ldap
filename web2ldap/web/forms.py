@@ -78,7 +78,7 @@ class Field:
         self.accesskey = accesskey
         # Charset is the preferred character set of the browser.
         # This is set by Form.add() to something meaningful.
-        self._charset = 'utf-8'
+        self.charset = 'utf-8'
         self.set_default(default)
         self.set_regex(pattern)
 
