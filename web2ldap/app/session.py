@@ -45,6 +45,14 @@ class Session(WebSession, LogHelper):
     """
     session store
     """
+    __slots__ = (
+        'max_concurrent_sessions',
+        'remote_ip_sessions',
+        'session_ip_addr',
+        'max_session_count_per_ip',
+        'remote_ip_counter',
+        'expiry_thread',
+    )
 
     def __init__(
             self,
