@@ -48,10 +48,10 @@ class Session(WebSession, LogHelper):
 
     def __init__(
             self,
-            session_ttl,
+            session_ttl: int,
             session_check_vars,
-            max_sessions,
-            max_session_count_per_ip,
+            max_sessions: int,
+            max_session_count_per_ip: int,
         ):
         WebSession.__init__(self, session_ttl, session_check_vars, max_sessions)
         self.max_concurrent_sessions = 0
@@ -105,7 +105,7 @@ class Session(WebSession, LogHelper):
                 del self.remote_ip_sessions[remote_ip]
         # end of _remove_ip_assoc()
 
-    def rename(self, old_sid, env):
+    def rename(self, old_sid: str, env):
         session_data = self.retrieve(old_sid, env)
         new_sid = self.new(env)
         self.save(new_sid, session_data)
@@ -117,7 +117,7 @@ class Session(WebSession, LogHelper):
         self._remove_ip_assoc(old_sid, remote_ip)
         return new_sid
 
-    def delete(self, sid):
+    def delete(self, sid: str):
         self.log(logging.DEBUG, 'delete(%r): remove session', sid)
         try:
             ls_local = self.sessiondict[sid][1]
@@ -158,7 +158,7 @@ class ExpiryThread(threading.Thread, LogHelper):
         '_stop_event',
     )
 
-    def __init__(self, session_obj, interval=60):
+    def __init__(self, session_obj, interval: float = 60):
         self._session_obj = session_obj
         self._interval = interval
         self._stop_event = threading.Event()
