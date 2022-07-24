@@ -99,7 +99,7 @@ class Session(WebSession, LogHelper):
         self.log(logging.INFO, 'new(): created new session for remote_ip = %r', remote_ip)
         return session_id
 
-    def _remove_ip_assoc(self, sid, remote_ip):
+    def _remove_ip_assoc(self, sid: str, remote_ip: str):
         try:
             del self.session_ip_addr[sid]
         except KeyError:
