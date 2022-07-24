@@ -118,7 +118,6 @@ class Session(WebSession, LogHelper):
         return new_sid
 
     def delete(self, sid):
-        assert isinstance(sid, str), TypeError('Expected sid to be str, got %r' % (sid))
         self.log(logging.DEBUG, 'delete(%r): remove session', sid)
         try:
             ls_local = self.sessiondict[sid][1]
