@@ -20,18 +20,11 @@ PYTHONPATH=${WEB2LDAP_HOME}:${PYTHONPATH:-""}
 export PYTHONPATH
 declare -p PYTHONPATH
 
-PYTHONDONTWRITEBYTECODE="1"
-export PYTHONDONTWRITEBYTECODE
-
-# Convert warnings to exceptions
-PYTHONWARNINGS=error
-export PYTHONWARNINGS
-
 # Python will print threading debug info
 PYTHONTHREADDEBUG=1
 export PYTHONTHREADDEBUG
 
-${PYTHON3} -bb -tt -m gunicorn.app.wsgiapp \
+${PYTHON3} -W error -B -I -bb -tt -m gunicorn.app.wsgiapp \
   --name=web2ldap \
   --preload \
   --worker-class=gthread \

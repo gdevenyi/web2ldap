@@ -20,13 +20,6 @@ PYTHONPATH=${WEB2LDAP_HOME}:${PYTHONPATH:-""}
 export PYTHONPATH
 declare -p PYTHONPATH
 
-PYTHONDONTWRITEBYTECODE="1"
-export PYTHONDONTWRITEBYTECODE
-
-# Convert warnings to exceptions
-PYTHONWARNINGS=error
-export PYTHONWARNINGS
-
 # Python will print threading debug info
 PYTHONTHREADDEBUG=1
 export PYTHONTHREADDEBUG
@@ -35,4 +28,4 @@ export PYTHONTHREADDEBUG
 PYTHONDUMPREFS=1
 export PYTHONDUMPREFS
 
-${PYTHON3} -R -bb -tt -m web2ldap
+${PYTHON3} -W error -B -bb -tt -m web2ldap.__main__
