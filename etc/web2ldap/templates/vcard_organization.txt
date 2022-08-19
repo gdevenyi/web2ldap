@@ -4,7 +4,7 @@ BEGIN:VCARD
   PRODID:-//WEB2LDAP//-//EN
   REV:%(lastModifiedTime)s%(modifytimestamp)s
   UID:%(entryUUID)s%(objectGUID)s
-  SOURCE: ldap:///%(dn)s
+  SOURCE:ldap:///%(dn)s
   FN;CHARSET=utf-8:%(o)s
   TEL;WORK:%(telephoneNumber)s
   TEL;FAX:%(facsimileTelephoneNumber)s
