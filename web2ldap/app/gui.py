@@ -43,8 +43,8 @@ EXTRACT_INVALID_ATTR_PATTERNS = (
     # OpenLDAP diagnostic messages
     re.compile(r"(?P<at>[a-zA-Z0-9;-]+): value #(?P<index>[0-9]+) invalid per syntax"),
     re.compile(r"object class '(?P<oc>[a-zA-Z0-9;-]+)' requires attribute '(?P<at>[a-zA-Z0-9;-]+)'"),
+    re.compile(r"'(?P<at>[a-zA-Z0-9;-]+)' can only appear in collectiveAttributeSubentry"),
 )
-
 
 #---------------------------------------------------------------------------
 # Constants
