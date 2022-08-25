@@ -596,10 +596,10 @@ class MsAdGUID(OctetString):
             object_guid_uuid = uuid.UUID(attr_value.decode('ascii').replace(':', ''))
         except ValueError:
             return OctetString.sanitize(self, attr_value)
-        return object_guid_uuid.bytes
+        return object_guid_uuid.bytes_le
 
     def display(self, vidx, links) -> str:
-        object_guid_uuid = uuid.UUID(bytes=self._av)
+        object_guid_uuid = uuid.UUID(bytes_le=self._av)
         return '{%s}<br>%s' % (
             str(object_guid_uuid),
             OctetString.display(self, vidx, links),
