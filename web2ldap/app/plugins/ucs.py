@@ -8,6 +8,7 @@ import re
 
 from ..schema.syntaxes import (
     Binary,
+    DateOfBirth,
     RFC822Address,
     DirectoryString,
     DistinguishedName,
@@ -17,7 +18,6 @@ from ..schema.syntaxes import (
     XmlValue,
     syntax_registry,
 )
-from .msperson import DateOfBirth
 
 
 class UniventionObjectType(DirectoryString):
