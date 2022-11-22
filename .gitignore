@@ -8,3 +8,4 @@ build/*
 docs/.build
 slapdtest-*
 .mypy_cache
+etc/web2ldap/web2ldapcnf/local.py
