@@ -6,6 +6,7 @@
 
 [Unit]
 Description=web2ldap - web-based LDAPv3 client (built-in HTTP demon)
+Documentation=https://www.web2ldap.de
 Requires=local-fs.target network.target
 After=local-fs.target network.target
 
