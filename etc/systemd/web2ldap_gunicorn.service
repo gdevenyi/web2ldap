@@ -5,7 +5,7 @@
 #-----------------------------------------------------------------------
 
 [Unit]
-Description=web2ldap - web-based LDAPv3 client (uwsgi)
+Description=web2ldap - web-based LDAPv3 client (gunicorn)
 Requires=local-fs.target network.target
 After=local-fs.target network.target
 
@@ -19,17 +19,31 @@ User=web2ldap
 Group=web2ldap
 Restart=always
 KillSignal=SIGQUIT
+
+# let systemd create temporary run-time directory and use it as current working directory
 RuntimeDirectory=web2ldap
-RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
-#AppArmorProfile=web2ldap
+WorkingDirectory=/run/web2ldap
+# run-time directory where Unix domain socket is created has to be writeable
+ReadWritePaths=/run/web2ldap
+
 # various hardening options
+CapabilityBoundingSet=
+AmbientCapabilities=
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+StandardInput=null
+UMask=0077
+PrivateUsers=no
 PrivateTmp=yes
 PrivateDevices=yes
-ProtectSystem=full
+ProtectSystem=strict
+ProtectProc=invisible
 ProtectHome=yes
 ProtectKernelModules=yes
 ProtectKernelTunables=yes
+ProtectKernelLogs=yes
 ProtectControlGroups=yes
+ProtectHostname=yes
+ProtectClock=yes
 NoNewPrivileges=yes
 MountFlags=private
 SystemCallArchitectures=native
@@ -37,7 +51,15 @@ LockPersonality=yes
 KeyringMode=private
 RestrictRealtime=yes
 RestrictNamespaces=yes
-SystemCallFilter=~ @clock @cpu-emulation @debug @keyring @module @mount @raw-io @reboot @swap @obsolete
+RestrictSUIDSGID=yes
+DevicePolicy=closed
+PrivateIPC=yes
+RemoveIPC=yes
+MemoryDenyWriteExecute=yes
+ProcSubset=pid
+SocketBindDeny=any
+SystemCallFilter=~ @clock @cpu-emulation @debug @keyring @module @mount @raw-io @reboot @swap @obsolete splice @resources @pkey @timer fork
+#AppArmorProfile=web2ldap
 
 [Install]
 WantedBy=multi-user.target
