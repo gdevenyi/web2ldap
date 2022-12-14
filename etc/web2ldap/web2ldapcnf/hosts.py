@@ -189,8 +189,8 @@ OPENLDAP_ACCESSLOG_CONFIG = Web2LDAPConfig(
         ),
         'auditModRDN':(
             '<strong>%(reqType)s</strong> %(reqStart)s session %(reqSession)s<br>'
-            '&rArr; %(reqResult)s: %(reqMessage)s<br>Entry %(reqDN)s renamed to'
-            '%(reqNewRDN)s,%(reqNewSuperior)s<br>by %(reqAuthzID)s'
+            '&rArr; %(reqResult)s: %(reqMessage)s<br>Entry %(reqDN)s<br>'
+            'renamed to %(reqNewRDN)s,%(reqNewSuperior)s<br>by %(reqAuthzID)s'
         ),
         'auditObject':(
             '<strong>%(reqType)s</strong> %(reqStart)s session %(reqSession)s<br>'
